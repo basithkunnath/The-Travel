@@ -1,19 +1,12 @@
 {
-  "version": 2,
   "builds": [
     {
       "src": "futuhtravels/wsgi.py",
       "use": "@vercel/python",
       "config": {
         "maxLambdaSize": "15mb",
-        "runtime": "python3.9"
-      }
-    },
-    {
-      "src": "build_files.sh",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "static"
+        "runtime": "python3.12",
+        "buildCommand": "bash setup.sh"
       }
     }
   ],
@@ -21,7 +14,10 @@
     {
       "src": "/(.*)",
       "dest": "futuhtravels/wsgi.py"
+    },
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
     }
-  ],
-  "outputDirectory": "static"
+  ]
 }
