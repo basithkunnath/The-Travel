@@ -9,7 +9,7 @@
   <section class="header-section text-center py-5">
     <h1 class="display-4">UMRAH PACKAGE</h1>
     <div class="d-flex justify-content-center gap-3 mt-4">
-        <a href="index.html"><button class="btn btn-dark">Back to Home</button></a>
+        <a href="{% url 'home' %}"><button class="btn btn-dark">Back to Home</button></a>
         <a href="https://wa.me/919961102203"><button class="btn btn-outline">Book a Trip</button></a>
     </div>
 </section>
@@ -17,16 +17,10 @@
 
 <!-- Full-Width Hero Image -->
 <div class="full-width-image-container">
-  <img src="kaaba (3).png" alt="Umrah Package Hero Image" class="img-fluid w-100">
+  <img src="{% static '/images/futuhlogo.png' %}" alt="Umrah Package Hero Image" class="img-fluid w-100">
 </div>
 
-  <!-- Umrah Package Header Section -->
-  <section class="umrah-header-section text-center py-5" style="background-image: url('header-image.jpg'); background-size: cover;">
-    <div class="container" data-aos="fade-up">
-      <h1 class="header-title display-4">Umrah Package</h1>
-      <p class="header-subtitle lead">A journey of a lifetime awaits you</p>
-    </div>
-  </section>
+ 
 
   <!-- Package Description Section -->
   <section class="umrah-package-description py-5">
