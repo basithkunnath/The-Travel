@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'packages',
     'gallery',
     'contact',
-    'umrah'
+    
 ]
 
 MIDDLEWARE = [
