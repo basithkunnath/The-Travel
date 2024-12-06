@@ -11,9 +11,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-from decouple import config
 import os
-import dj database url
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -22,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = 'django-insecure-bw$$x%bgb#y+l(b@$3x&9&rnalm4xk!@20!o@!%v%rfinnbc46'
 
 # Initialize environment variables
 
@@ -30,7 +29,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 
 DEBUG = True
-ALLOWED_HOSTS = ['127.0.0.1','.vercel.app','the-travel-three.vercel.app']
+ALLOWED_HOSTS = ['.vercel.app']
 
 
 
@@ -53,7 +52,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
     'django.middleware.security.SecurityMiddleware', # for production
     'whitenoise.middleware.WhiteNoiseMiddleware', # for production
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -65,13 +63,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'futuhtravels.urls'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR /'templates'],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -96,7 +93,7 @@ DATABASES = {
     }
 }
 
-DATABASE['default'] = dj_database_url.config()
+
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
@@ -133,12 +130,12 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 # Directory to collect all static files for production
-STATIC_ROOT = BASE_DIR / "staticfiles_build" / "static"
- # STATICFILES_DIRS = [
- # os.path.join(BASE_DIR, 'static')
- # ] 
 
+STATICFILES_DIRS = [
+   os.path.join(BASE_DIR, 'static')
+   ] 
 
+STATIC_ROOT = "staticfiles"
 
 
 
